@@ -3,7 +3,11 @@ import './App.css';
 import { useNotes } from "./reducers/useNotes";
 
 function App() {
-  const {notes,addNote,removeNoteById} = useNotes();
+  const {notes,
+    addNote,
+    removeNoteById,
+    toggleImportanceById
+  } = useNotes();
   const text = useRef()
   console.log(notes)
   return (
@@ -17,6 +21,11 @@ function App() {
         <ol>
        {notes.map( note =>
          <li key={note.title}><span>{note.title}</span>
+           <input 
+           onChange={()=>{toggleImportanceById(note.id)}} 
+           type="checkbox" 
+           checked={note.important}
+           />
          <button onClick={()=>{removeNoteById(note.id)}}>Delete</button>
          </li>) 
          }
