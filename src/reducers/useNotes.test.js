@@ -34,7 +34,7 @@ describe("useNotes", () => {
     expect(result.current.notes).toHaveLength(1)
     expect(result.current.notes[0].title).toEqual(storedNotes[0].title)
       
-      const id= result.current.notes[0].id
+    const id= result.current.notes[0].id
 
       act(()=>{
         result.current.removeNoteById(id)
